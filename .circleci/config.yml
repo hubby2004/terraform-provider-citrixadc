@@ -22,7 +22,7 @@ jobs:
          name: Build
          command: |
            go version
-           go build -o terraform-provider-citrixadc ../main.go
+           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o terraform-provider-citrixadc ../main.go
 
      - run:
          name: Install Terraform
